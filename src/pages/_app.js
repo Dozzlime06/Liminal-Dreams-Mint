@@ -1,3 +1,4 @@
+// src/pages/_app.js
 import { PrivyProvider } from '@privy-io/react-auth';
 import { base } from 'viem/chains';
 import '../styles/globals.css';
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }) {
         },
         defaultChain: base,
         supportedChains: [base],
-        walletConnectCloudProjectId: 'your-walletconnect-project-id',
+        walletConnectCloudProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
       }}
     >
       <Component {...pageProps} />
