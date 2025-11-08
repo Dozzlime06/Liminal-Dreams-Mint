@@ -15,12 +15,13 @@ function MyApp({ Component, pageProps }) {
           logo: 'https://auth.privy.io/logos/privy-logo.png',
         },
         embeddedWallets: {
-          createOnLogin: 'users-without-wallets',
+          createOnLogin: 'always', // <-- use 'always' to force wallet creation for testing
           noPromptOnSignature: false,
         },
         defaultChain: base,
         supportedChains: [base],
-        walletConnectCloudProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
+        // optional: only needed if using WalletConnect Cloud
+        // walletConnectCloudProjectId: 'your-walletconnect-project-id',
       }}
     >
       <Component {...pageProps} />
